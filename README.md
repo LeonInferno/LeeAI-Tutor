@@ -1,6 +1,6 @@
-# LeeAI Tutor 🤖📚
+# LeeMind 🤖📚
 
-LeeAI Tutor is a full-stack AI tutoring web app built with:
+LeeMind is a full-stack AI learning platform built with:
 
 - React (Frontend)
 - Spring Boot (Backend)
