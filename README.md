@@ -1,6 +1,6 @@
 # LeeMind
 
-A full-stack AI-powered study platform that transforms user-uploaded documents into interactive learning tools. Built with React, Java Spring Boot, and OpenAI's API.
+A full-stack AI-powered learning platform that transforms user-uploaded documents into interactive learning tools. Built with React, Java Spring Boot, and OpenAI's API.
 
 ## Features
 
