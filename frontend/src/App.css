@@ -1335,104 +1335,183 @@ body{
 }
 
 /* ===== INFOGRAPHIC VIEW ===== */
-.infographicWrap{
+.igWrap{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   padding: 8px 0;
 }
 
-.infographicHeader{
+/* Banner */
+.igBanner{
   text-align: center;
-  padding: 24px 16px 16px;
-  background: linear-gradient(135deg, rgba(59,130,246,0.14), rgba(96,165,250,0.06));
-  border: 1px solid rgba(59,130,246,0.20);
+  padding: 28px 20px 20px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.18) 0%, rgba(168,85,247,0.10) 100%);
+  border: 1px solid rgba(99,155,255,0.28);
   border-radius: 18px;
+  position: relative;
+  overflow: hidden;
 }
-
-.infographicTitle{
-  font-size: 22px;
+.igBanner::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(59,130,246,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.igTitle{
+  font-size: 24px;
   font-weight: 900;
-  letter-spacing: -0.4px;
-  color: rgba(255,255,255,0.95);
-  margin-bottom: 6px;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  position: relative;
+}
+.igSubtitle{
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.58);
+  line-height: 1.45;
+  position: relative;
 }
 
-.infographicSubtitle{
-  font-size: 14px;
-  color: rgba(255,255,255,0.60);
-  line-height: 1.4;
+/* Two-column versus */
+.igVersus{
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  gap: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.igCol{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px 16px;
+}
+.igColLeft{ background: rgba(239,68,68,0.06); }
+.igColRight{ background: rgba(59,130,246,0.07); }
+.igVersusDiv{
+  width: 2px;
+  background: rgba(255,255,255,0.07);
+}
+.igColHeader{
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+.igColHeaderLeft{
+  background: rgba(239,68,68,0.18);
+  color: #f87171;
+  border: 1px solid rgba(239,68,68,0.28);
+}
+.igColHeaderRight{
+  background: rgba(59,130,246,0.18);
+  color: #60a5fa;
+  border: 1px solid rgba(59,130,246,0.28);
+}
+.igPoint{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.igPointIcon{
+  font-size: 22px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 1px;
+}
+.igPointBody{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.igPointTitle{
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.2;
+}
+.igPointDesc{
+  font-size: 12px;
+  color: rgba(255,255,255,0.54);
+  line-height: 1.45;
 }
 
-.infographicStats{
+/* Stats row */
+.igStats{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-
-.infographicStat{
+.igStat{
   border-radius: 14px;
   padding: 16px 12px;
   text-align: center;
-  border: 1px solid rgba(255,255,255,0.10);
 }
-
-.infographicStatValue{
-  font-size: 18px;
+.igStatValue{
+  font-size: 20px;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.1;
   margin-bottom: 6px;
 }
-
-.infographicStatLabel{
-  font-size: 11px;
-  color: rgba(255,255,255,0.55);
+.igStatLabel{
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.50);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
 }
 
-.infographicSections{
-  display: flex;
-  flex-direction: column;
+/* Sections grid */
+.igSections{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
-
-.infographicSection{
+.igSection{
   border-radius: 14px;
-  padding: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
+  padding: 16px 15px;
 }
-
-.infographicSectionTitle{
-  font-size: 14px;
+.igSectionTitle{
+  font-size: 11px;
   font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin-bottom: 10px;
 }
-
-.infographicBullets{
+.igBullets{
   display: flex;
   flex-direction: column;
   gap: 7px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-
-.infographicBullet{
+.igBullet{
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.5;
-  color: rgba(255,255,255,0.80);
+  color: rgba(255,255,255,0.78);
 }
-
-.infographicDot{
+.igDot{
   flex-shrink: 0;
   width: 6px; height: 6px;
   border-radius: 999px;
   margin-top: 7px;
 }
 
-.infographicTakeaway{
+/* Takeaway banner */
+.igTakeaway{
   border-radius: 14px;
   padding: 16px 18px;
   display: flex;
@@ -1441,12 +1520,12 @@ body{
   font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
-  border: 1px solid rgba(255,215,0,0.25);
+  border: 1px solid rgba(255,215,0,0.28);
   background: rgba(255,215,0,0.06);
-  color: rgba(255,255,255,0.88);
+  color: rgba(255,255,255,0.90);
 }
-.infographicTakeawayIcon{
-  font-size: 20px;
+.igTakeawayIcon{
+  font-size: 22px;
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -1975,13 +2054,252 @@ body{
   color: rgba(255,255,255,0.30);
 }
 
+/* ===== CONCEPT MAP TREE (visual) ===== */
+.cmTreeRoot{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.97);
+  background: linear-gradient(135deg, rgba(59,130,246,0.28), rgba(37,99,235,0.16));
+  border: 1px solid rgba(59,130,246,0.52);
+  border-radius: 10px;
+  padding: 4px 10px;
+  box-shadow: 0 0 18px rgba(59,130,246,0.18);
+  overflow: hidden;
+  word-break: break-word;
+  line-height: 1.25;
+}
+
+.cmTreeBranch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 8px;
+  padding: 4px 8px;
+  overflow: hidden;
+  word-break: break-word;
+  line-height: 1.25;
+}
+
+.cmTreeLeaf{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgba(255,255,255,0.88);
+  background: rgba(34,197,94,0.13);
+  border: 1px solid rgba(34,197,94,0.34);
+  border-radius: 7px;
+  padding: 6px 10px;
+  overflow: hidden;
+  gap: 3px;
+}
+
+.cmLeafName{
+  font-size: 11px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.cmLeafDef{
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.50);
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+/* ===== VIDEO SUMMARY VIEW ===== */
+.vsWrap{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.vsHeader{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vsTopic{
+  font-size: 15px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.90);
+}
+
+.vsSlideCount{
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.vsSlide{
+  background: linear-gradient(145deg, rgba(59,130,246,0.10), rgba(0,0,0,0.22));
+  border: 1px solid rgba(59,130,246,0.22);
+  border-radius: 18px;
+  padding: 24px 22px;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.vsSlideNum{
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: rgba(59,130,246,0.70);
+}
+
+.vsSlideTitle{
+  font-size: 19px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  color: rgba(255,255,255,0.96);
+  line-height: 1.2;
+}
+
+.vsBullets{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 2px;
+}
+
+.vsBullet{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.78);
+}
+
+.vsBulletDot{
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(59,130,246,0.80);
+  margin-top: 7px;
+}
+
+.vsProgressBar{
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.vsProgressFill{
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.vsDots{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.vsDot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.18);
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s;
+  padding: 0;
+}
+
+.vsDotActive{
+  background: #3b82f6;
+  transform: scale(1.35);
+}
+
+.vsControls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.vsNavBtn{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.80);
+  border-radius: 12px;
+  padding: 9px 20px;
+  font-weight: 800;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+
+.vsNavBtn:hover:not(:disabled){ background: rgba(255,255,255,0.10); }
+.vsNavBtn:disabled{ opacity: 0.3; cursor: not-allowed; }
+
+.vsPlayBtn{
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 30px;
+  font-weight: 900;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(59,130,246,0.35);
+  transition: opacity 0.12s;
+  min-width: 110px;
+}
+
+.vsPlayBtn:hover{ opacity: 0.88; }
+
+.vsNarration{
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.38);
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 12px;
+}
+
+.vsNarrationLabel{
+  font-weight: 900;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.07em;
+  margin-right: 6px;
+}
+
 /* Responsive */
 @media (max-width: 1100px){
   /* App pages */
   .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .workspace{ grid-template-columns: 1fr; }
   .panel{ min-height: auto; }
-  .infographicStats{ grid-template-columns: 1fr 1fr; }
+  .igStats{ grid-template-columns: 1fr 1fr; }
+  .igSections{ grid-template-columns: 1fr; }
+  .igVersus{ grid-template-columns: 1fr; }
+  .igVersusDiv{ width: 100%; height: 2px; }
   .keyFactsGrid{ grid-template-columns: 1fr; }
   .quizCountGrid{ grid-template-columns: repeat(2, 1fr); }
   /* Landing page */

@@ -103,6 +103,17 @@ export default function Notebook() {
         }
         const blob = await res.blob();
         setAudioUrl(URL.createObjectURL(blob));
+      } else if (toolType === "Video Summary") {
+        const res = await fetch("http://localhost:8080/api/leeai/video", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ context: buildContext() }),
+        });
+        if (!res.ok) {
+          const errText = await res.text();
+          throw new Error(errText || `Request failed: ${res.status}`);
+        }
+        setToolContent(await res.text());
       } else {
         const res = await fetch("http://localhost:8080/api/leeai/generate", {
           method: "POST",

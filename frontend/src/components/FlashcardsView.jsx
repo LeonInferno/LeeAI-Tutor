@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function parseFlashcards(text) {
   const cards = [];
@@ -39,6 +39,27 @@ export default function FlashcardsView({ content }) {
     setTimeout(() => setIndex(i => Math.max(0, Math.min(cards.length - 1, i + dir))), 120);
   }
 
+  useEffect(() => {
+    function onKey(e) {
+      if (e.code === "Space") {
+        e.preventDefault();
+        setFlipped(f => !f);
+      }
+      if (e.code === "ArrowRight") {
+        e.preventDefault();
+        setFlipped(false);
+        setTimeout(() => setIndex(i => Math.min(cards.length - 1, i + 1)), 120);
+      }
+      if (e.code === "ArrowLeft") {
+        e.preventDefault();
+        setFlipped(false);
+        setTimeout(() => setIndex(i => Math.max(0, i - 1)), 120);
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [cards.length]);
+
   function toggleShuffle() {
     if (shuffled) {
       setOrder(cards.map((_, i) => i));
@@ -68,7 +89,7 @@ export default function FlashcardsView({ content }) {
           <div className="fcFront">
             <div className="fcSideLabel">Question</div>
             <div className="fcText">{card.q}</div>
-            <div className="fcTap">Tap to flip</div>
+            <div className="fcTap">Tap or Space to flip</div>
           </div>
           <div className="fcBack">
             <div className="fcSideLabel">Answer</div>

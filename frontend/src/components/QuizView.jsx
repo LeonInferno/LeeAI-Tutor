@@ -174,8 +174,8 @@ export default function QuizView({ content, questionType }) {
       </div>
 
       {isMC
-        ? <MCQuestion q={q} qIndex={current} onAnswer={handleAnswer} locked={isAnswered} />
-        : <SAQuestion q={q} qIndex={current} onAnswer={handleSAAnswer} answered={isAnswered} />
+        ? <MCQuestion key={current} q={q} qIndex={current} onAnswer={handleAnswer} locked={isAnswered} />
+        : <SAQuestion key={current} q={q} qIndex={current} onAnswer={handleSAAnswer} answered={isAnswered} />
       }
 
       <div className="quizNavRow">

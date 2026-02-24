@@ -8,6 +8,7 @@ import SlideDeckView from "./SlideDeckView";
 import InfographicView from "./InfographicView";
 import KeyFactsView from "./KeyFactsView";
 import ConceptMapView from "./ConceptMapView";
+import VideoSummaryView from "./VideoSummaryView";
 
 const TOOL_ICONS = {
   "Audio Summary":  "🎙️",
@@ -33,13 +34,14 @@ function MarkdownView({ content }) {
 
 function renderContent(toolType, content, questionType) {
   switch (toolType) {
-    case "Flashcards":  return <FlashcardsView content={content} />;
-    case "Quiz":        return <QuizView content={content} questionType={questionType} />;
-    case "Slide Deck":  return <SlideDeckView content={content} />;
-    case "Infographic": return <InfographicView content={content} />;
-    case "Key Facts":   return <KeyFactsView content={content} />;
-    case "Concept Map": return <ConceptMapView content={content} />;
-    default:            return <MarkdownView content={content} />;
+    case "Flashcards":     return <FlashcardsView content={content} />;
+    case "Quiz":           return <QuizView content={content} questionType={questionType} />;
+    case "Slide Deck":     return <SlideDeckView content={content} />;
+    case "Infographic":    return <InfographicView content={content} />;
+    case "Key Facts":      return <KeyFactsView content={content} />;
+    case "Concept Map":    return <ConceptMapView content={content} />;
+    case "Video Summary":  return <VideoSummaryView content={content} />;
+    default:               return <MarkdownView content={content} />;
   }
 }
 
@@ -50,8 +52,9 @@ export default function ToolOutputModal({
   const [copied, setCopied] = useState(false);
   const icon = TOOL_ICONS[toolType] || "✨";
   const isAudio = toolType === "Audio Summary";
+  const isVideo = toolType === "Video Summary";
   const hasContent = isAudio ? !!audioUrl : !!content;
-  const isInteractive = ["Flashcards", "Quiz", "Slide Deck"].includes(toolType);
+  const isInteractive = ["Flashcards", "Quiz", "Slide Deck", "Video Summary"].includes(toolType);
 
   async function copyAll() {
     try {
@@ -86,7 +89,11 @@ export default function ToolOutputModal({
                 {isAudio ? "Generating audio…" : `Generating ${toolType}…`}
               </div>
               <div className="toolLoadingHint">
-                {isAudio ? "Writing script and converting to speech" : "LeeAI is crafting your content"}
+                {isAudio
+                  ? "Writing script and converting to speech"
+                  : isVideo
+                  ? "Building slides and generating AI voice for each — this takes ~30 seconds"
+                  : "LeeAI is crafting your content"}
               </div>
             </div>
           )}

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 const TOOLS = [
   { icon: "🎙️", name: "Audio Summary",  desc: "Turn notes into spoken audio you can listen to anywhere." },
-  { icon: "🎬", name: "Video Summary",   desc: "Generate a visual storyboard script from your content." },
+  { icon: "🎬", name: "Video Summary",   desc: "AI-narrated slides that teach your content — play it like a video." },
   { icon: "🗺️", name: "Concept Map",    desc: "See how ideas connect in a structured visual tree." },
   { icon: "📖", name: "Study Guide",    desc: "Get a clean, organized guide with key concepts and definitions." },
   { icon: "🃏", name: "Flashcards",     desc: "Quizlet-style flip cards — question front, answer back." },
